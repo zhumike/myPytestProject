@@ -9,6 +9,7 @@ __pycache__/
 # Distribution / packaging
 .Python
 build/
+.idea/
 develop-eggs/
 dist/
 downloads/
@@ -49,6 +50,9 @@ coverage.xml
 *.py.cover
 .hypothesis/
 .pytest_cache/
+allure-test/.pytest_cache/
+sample/.pytest_cache/
+
 cover/
 
 # Translations

@@ -1,0 +1,69 @@
+---
+#用户名请求为空
+"url": "http://localhost:5000/login"
+"body": '{
+           "password":"admin",
+           "sex":"男",
+           "age":18
+        }'
+"expect": '{
+              "message": {
+                  "username": "用户名不能为空"
+              }
+          }'
+---
+#密码参数为空
+"url": "http://localhost:5000/login"
+"body": '{
+           "username":"admin",
+           "sex":"男",
+           "age":18
+        }'
+"expect": '{
+              "message": {
+                  "password": "账户密码不能为空"
+              }
+          }'
+---
+#校验性别参数的验证
+"url": "http://localhost:5000/login"
+"body": '{
+           "username":"wuya",
+           "password":"admin",
+           "sex":"asdf",
+           "age":18
+         }'
+expect: '{
+             "message": {
+                 "sex": "性别只能是男或者女"
+             }
+         }'
+---
+#校验年龄是否是正整数
+"url": "http://localhost:5000/login"
+"body": '{
+           "username":"wuya",
+           "password":"admin",
+           "sex":"男",
+           "age":"rrest"
+         }'
+"expect": '{
+               "message": {
+                   "age": "年龄必须为正正数"
+               }
+           }'
+---
+#登录成功
+"url": "http://localhost:5000/login"
+"body": '{
+           "username":"wuya",
+           "password":"admin",
+           "sex":"男",
+           "age":"18"
+         }'
+"expect": '{
+               "age": 18,
+               "password": "admin",
+               "sex": "男",
+               "username": "wuya"
+           }'
