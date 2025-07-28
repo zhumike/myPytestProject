@@ -22,12 +22,25 @@ class DBUtils:
         cursor = self.connect()
         try:
             cursor.execute(sql)
-            result = cursor.fetchone() if "SELECT" in sql.upper() else None
+            result = cursor.fetchone() if "SELECT" or"INTO" in sql.upper() else None
             self.connection.commit()
             return result
         finally:
             cursor.close()
             self.connection.close()
+
+    def queryMany(self, sql: str):
+        cursor = self.connect()
+        try:
+            cursor.execute(sql)
+            result = cursor.fetchall() if "SELECT" or"INTO" in sql.upper() else None
+            self.connection.commit()
+            return result
+        finally:
+            cursor.close()
+            self.connection.close()
+
+
     def execute(self, sql: str):
         cursor = self.connect()
         try:
