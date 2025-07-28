@@ -51,6 +51,8 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 allure-test/.pytest_cache/
+allure-test/allure-report
+allure-test/allure-results
 sample/.pytest_cache/
 
 cover/
